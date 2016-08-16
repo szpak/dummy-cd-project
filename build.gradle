@@ -22,29 +22,12 @@ deliveryBoy {
     releaseBranch = "deliveryBoy"
 }
 
-task fakeBuild << {
-    println "Fake build..."
-}
-
-task fakeUploadArchives << {
-    println "Fake upload archives..."
-}
-
-task fakePrepareRelease << {
-    println "Fake prepare release (version)..."
-}
-
-task fakeCloseRepository << {
-    println "Fake close repository..."
-}
-
-task fakePushRelease << {
-    println "Fake push release (Git)..."
-}
-
-task fakePromoteRepository << {
-    println "Fake promote repository..."
-}
+task fakeBuild << {}
+task fakeUploadArchives << {}
+task fakePrepareRelease << {}
+task fakeCloseRepository << {}
+task fakePushRelease << {}
+task fakePromoteRepository << {}
 
 //Move to plugin
 fakeCloseRepository.mustRunAfter fakeUploadArchives
