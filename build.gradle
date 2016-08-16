@@ -24,7 +24,7 @@ deliveryBoy {
 
 task fakeBuild << {}
 task fakeUploadArchives << {}
-task fakePrepareRelease << {}
+task fakeCreateRelease << {}
 task fakeCloseRepository << {}
 task fakePushRelease << {}
 task fakePromoteRepository << {}
