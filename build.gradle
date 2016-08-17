@@ -20,6 +20,7 @@ apply plugin: 'info.solidsoft.deliveryboy'
 deliveryBoy {
     ciType = "travis"
     releaseBranch = "deliveryBoy"
+    dryRun = true
 }
 
 task fakeBuild << {}
@@ -30,6 +31,7 @@ task fakePushRelease << {}
 task fakePromoteRepository << {}
 
 //Move to plugin
+currentVersion.mustRunAfter fakeCreateRelease
 fakeCloseRepository.mustRunAfter fakeUploadArchives
 fakePromoteRepository.mustRunAfter fakeUploadArchives, fakePushRelease
 fakePushRelease.mustRunAfter fakeCloseRepository
