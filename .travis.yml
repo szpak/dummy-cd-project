@@ -4,4 +4,4 @@ jdk:
   - oraclejdk8
 
 install: ./gradlew assemble --stacktrace --info
-script: ./gradlew check --stacktrace --info --continue
+script: ./gradlew prepareForCiBuild --stacktrace --info && ./gradlew ciBuild --stacktrace --info
