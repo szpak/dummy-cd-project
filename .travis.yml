@@ -5,4 +5,6 @@ jdk:
 
 before_install: "export TRAVIS_COMMIT_MSG=$(git log --format=%B -n 1 $TRAVIS_COMMIT)"
 install: ./gradlew assemble --stacktrace --info
-script: ./gradlew prepareForCiBuild --stacktrace --info -PdeliveryBoy.dryRun=false -Prelease.disableUncommittedCheck && ./gradlew ciBuild --stacktrace --debug -PdeliveryBoy.dryRun=false -Prelease.disableUncommittedCheck
+script:
+ - ./gradlew prepareForCiBuild --stacktrace --info -PdeliveryBoy.dryRun=false -Prelease.disableUncommittedCheck
+ - ./gradlew ciBuild --stacktrace --debug -PdeliveryBoy.dryRun=false -Prelease.disableUncommittedCheck
