@@ -7,7 +7,7 @@ before_install: "export TRAVIS_COMMIT_MSG=$(git log --format=%B -n 1 $TRAVIS_COM
 install: ./gradlew assemble --stacktrace --info
 script:
  - ./gradlew prepareForCiBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableUncommittedCheck
- - ./gradlew ciBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableUncommittedCheck
+ - ./gradlew ciBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableUncommittedCheck -Prelease.customUsername=SEC_TOKEN
 
 env:
   global:
