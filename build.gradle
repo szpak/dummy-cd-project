@@ -80,6 +80,10 @@ nexusStaging {
     stagingProfileId = "34a3a5beeaa96"
 }
 
+nexus {
+    sign = false    //TODO: Temporary
+}
+
 modifyPom {
     project {
         name 'Gradle template'
