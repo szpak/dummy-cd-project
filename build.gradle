@@ -37,6 +37,14 @@ fakeCloseRepository.mustRunAfter fakeUploadArchives
 fakePromoteRepository.mustRunAfter fakeUploadArchives, fakePushRelease
 fakePushRelease.mustRunAfter fakeCloseRepository
 
+//TODO: Switch to Axion when fixed compatibility with Travis
+task pushRelease2(type: Exec) {
+    commandLine "sh", "-c", """
+      git config user.email "szpak-ci@users.noreply.github.com"
+      git config user.name "Szpak CI Bot"
+      git push -q "https://\$GITHUB_TOKEN@github.com/szpak/dummy-cd-project.git" HEAD:refs/heads/master --follow-tags > /dev/null 2>&1
+    """
+}
 
 scmVersion {
     tag {
