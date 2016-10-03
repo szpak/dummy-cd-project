@@ -31,11 +31,7 @@ task fakeCloseRepository << {}
 task fakePushRelease << {}
 task fakePromoteRepository << {}
 
-//Move to plugin
-currentVersion.mustRunAfter fakeCreateRelease
-fakeCloseRepository.mustRunAfter fakeUploadArchives
-fakePromoteRepository.mustRunAfter fakeUploadArchives, fakePushRelease
-fakePushRelease.mustRunAfter fakeCloseRepository
+//currentVersion.mustRunAfter fakeCreateRelease   //TODO: Needed? Move to plugin if yes
 
 //TODO: Switch to Axion when fixed compatibility with Travis
 task pushRelease2(type: Exec) {
