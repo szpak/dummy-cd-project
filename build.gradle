@@ -77,7 +77,7 @@ nexusStaging {
 }
 
 nexus {
-//    sign = false    //TODO: Temporary
+//    sign = false
 }
 
 modifyPom {
