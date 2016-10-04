@@ -4,6 +4,7 @@ jdk:
   - oraclejdk8
 
 before_install:
+ - openssl aes-256-cbc -K $encrypted_e4c2091feef7_key -iv $encrypted_e4c2091feef7_iv -in gradle/dk1.asc.enc -d | gpg --fast-import
  - "export TRAVIS_COMMIT_MSG=$(git log --format=%B -n 1 $TRAVIS_COMMIT)"
  - git config user.email "szpak-ci@users.noreply.github.com"
  - git config user.name "Szpak CI Bot"
@@ -11,7 +12,7 @@ before_install:
 
 install: ./gradlew assemble --stacktrace --info
 script:
- - ./gradlew prepareForCiBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks && ./gradlew ciBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks -Prelease.customUsername=SEC_TOKEN
+ - ./gradlew prepareForCiBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks && ./gradlew ciBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks -Prelease.customUsername=SEC_TOKEN -Psigning.keyId=0694F057 -Psigning.secretKeyRingFile=~/.gnupg/secring.gpg
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
