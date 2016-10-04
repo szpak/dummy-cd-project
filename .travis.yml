@@ -12,7 +12,7 @@ before_install:
 
 install: ./gradlew assemble --stacktrace --info
 script:
- - ./gradlew prepareForCiBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks && ./gradlew ciBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks -Prelease.customUsername=SEC_TOKEN -Psigning.keyId=0694F057 -Psigning.secretKeyRingFile=$HOME/.gnupg/secring.gpg
+ - ./gradlew prepareForCiBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks && ./gradlew ciBuild -s -i -PdeliveryBoy.dryRun=false -Prelease.disableChecks -Prelease.customUsername=SEC_TOKEN -Psigning.keyId=0694F057 -Psigning.secretKeyRingFile=$HOME/.gnupg/secring.gpg -Psigning.password=
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
