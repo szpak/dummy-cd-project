@@ -10,6 +10,10 @@ buildscript {
         classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3'
         classpath 'info.solidsoft.gradle:deliveryboy:0.1.0-SNAPSHOT'
     }
+    configurations.all {
+        //Check for new SNAPSHOT versions every build
+        resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+    }
 }
 
 apply plugin: 'groovy'
