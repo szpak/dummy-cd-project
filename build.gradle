@@ -33,15 +33,6 @@ task fakePromoteRepository << {}
 
 //currentVersion.mustRunAfter fakeCreateRelease   //TODO: Needed? Move to plugin if yes
 
-//TODO: Switch to Axion when fixed compatibility with Travis
-task pushRelease2(type: Exec) {
-//    String releaseBranchName = "master"
-    String releaseBranchName = "deliveryBoy"
-    commandLine "sh", "-c", """
-      git push -q "https://\$GH_TOKEN@github.com/szpak/dummy-cd-project.git" HEAD:refs/heads/$releaseBranchName --tags > /dev/null 2>&1
-    """
-}
-
 scmVersion {
     tag {
         prefix = 'release'
