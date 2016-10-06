@@ -63,17 +63,18 @@ nexus {
 //    sign = false
 }
 
+def repoSlug = 'szpak/dummy-cd-project'
 modifyPom {
     project {
         name 'Gradle template'
         description 'Gradle template'
-        url 'https://github.com/szpak/dummy-cd-project'
+        url "https://github.com/$repoSlug"
         inceptionYear '2015'
 
         scm {
-            url 'https://github.com/szpak/dummy-cd-project'
-            connection 'scm:https://github.com/szpak/dummy-cd-project'
-            developerConnection 'scm:git://github.com/szpak/dummy-cd-project'
+            url "https://github.com/$repoSlug"
+            connection "scm:https://github.com/$repoSlug"
+            developerConnection "scm:git://github.com/$repoSlug"
         }
 
         licenses {
