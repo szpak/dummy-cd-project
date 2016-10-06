@@ -5,9 +5,6 @@ buildscript {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
     dependencies {
-        classpath 'com.bmuschko:gradle-nexus-plugin:2.3'
-        classpath 'pl.allegro.tech.build:axion-release-plugin:1.2.3'
-        classpath 'io.codearte.gradle.nexus:gradle-nexus-staging-plugin:0.5.3'
         classpath 'info.solidsoft.gradle:deliveryboy:0.1.0-SNAPSHOT'
     }
     configurations.all {
@@ -17,9 +14,6 @@ buildscript {
 }
 
 apply plugin: 'groovy'
-apply plugin: 'pl.allegro.tech.build.axion-release'
-apply plugin: 'com.bmuschko.nexus'
-apply plugin: 'io.codearte.nexus-staging'
 apply plugin: 'info.solidsoft.deliveryboy'
 
 deliveryBoy {
