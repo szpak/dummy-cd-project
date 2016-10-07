@@ -20,6 +20,9 @@ deliveryBoy {
     ciType = "travis"
     releaseBranch = "deliveryBoy"
     dryRun = true
+    tasks {
+        buildProjectTask = "artificialBuild"
+    }
 }
 
 task fakeBuild << {}
@@ -28,6 +31,9 @@ task fakeCreateRelease << {}
 task fakeCloseRepository << {}
 task fakePushRelease << {}
 task fakePromoteRepository << {}
+
+task artificialBuild << {}
+artificialBuild.dependsOn(build)
 
 //currentVersion.mustRunAfter fakeCreateRelease   //TODO: Needed? Move to plugin if yes
 
