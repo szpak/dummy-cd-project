@@ -5,7 +5,7 @@ buildscript {
         maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
     }
     dependencies {
-        classpath 'info.solidsoft.gradle:deliveryboy:0.1.0-SNAPSHOT'
+        classpath 'info.solidsoft.gradle:cdeliveryboy:0.2.0-SNAPSHOT'
     }
     configurations.all {
         //Check for new SNAPSHOT versions every build
@@ -14,11 +14,10 @@ buildscript {
 }
 
 apply plugin: 'groovy'
-apply plugin: 'info.solidsoft.deliveryboy'
+apply plugin: 'info.solidsoft.cdeliveryboy'
 
-deliveryBoy {
-    ciType = "travis"
-    releaseBranch = "deliveryBoy"
+cDeliveryBoy {
+    releaseBranch = "cDeliveryBoy"
     dryRun = true
     tasks {
         buildProjectTask = "artificialBuild"
